@@ -1,7 +1,7 @@
 # alt-swing
 Python implementation of the SE decision process described at http://sebokwiki.org/wiki/Decision_Management
 
-## Background
+## Use
 Assess a set of alternatives, scoring performance using swing weights, and display the results.
 The assessment follows this process:
 *  Define a set of objectives with an associated value function and importance value for each objective
@@ -10,7 +10,11 @@ The assessment follows this process:
 *  Calculate the resulting system value for all alternatives using the value contributed to each objective
 *  Display results of the analysis
 
-## Usage
+## To Do
+
+* Allow an arbitrary Objectives hierarchy (currently limited to two levels - Objectives and Measures)
+* Allow arbitrary naming scheme for Objectives, Measures and Alternatives
+* Remove Alternatives with scores that do not meet threshold criteria
 
 
 ## License
