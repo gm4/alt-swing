@@ -1,0 +1,7 @@
+site_name: alt-swing Documentation
+pages:
+- Home: index.md
+- 'User Guide': user-guide.md
+theme: readthedocs
+# theme: yeti
+repo_url: https://github.com/gm4/alt-swing
