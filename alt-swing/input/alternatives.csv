@@ -1,0 +1,37 @@
+Alternative,Objective,Measure,Score,Units
+Cardinal,Relocate UAV,Minimize UAV weight,5,lbs
+Cardinal,Relocate UAV,Minimize UAV volume,12,ft3
+Cardinal,Employ UAV,Maximize all weather capability,3,index
+Cardinal,Employ UAV,Maximize UAV range,10,km
+Cardinal,Employ UAV,Maximize UAV Pd,0.92,probability
+Cardinal,Employ UAV,Maximize UAV endurance,0.5,hours
+Buzzard,Relocate UAV,Minimize UAV weight,10,lbs
+Buzzard,Relocate UAV,Minimize UAV volume,15,ft3
+Buzzard,Employ UAV,Maximize all weather capability,1,index
+Buzzard,Employ UAV,Maximize UAV range,10,km
+Buzzard,Employ UAV,Maximize UAV Pd,0.9,probability
+Buzzard,Employ UAV,Maximize UAV endurance,1,hours
+Crow,Relocate UAV,Minimize UAV weight,10,lbs
+Crow,Relocate UAV,Minimize UAV volume,20,ft3
+Crow,Employ UAV,Maximize all weather capability,3,index
+Crow,Employ UAV,Maximize UAV range,70,km
+Crow,Employ UAV,Maximize UAV Pd,0.92,probability
+Crow,Employ UAV,Maximize UAV endurance,1,hours
+Pigeon,Relocate UAV,Minimize UAV weight,15,lbs
+Pigeon,Relocate UAV,Minimize UAV volume,30,ft3
+Pigeon,Employ UAV,Maximize all weather capability,3,index
+Pigeon,Employ UAV,Maximize UAV range,80,km
+Pigeon,Employ UAV,Maximize UAV Pd,0.92,probability
+Pigeon,Employ UAV,Maximize UAV endurance,1.5,hours
+Robin,Relocate UAV,Minimize UAV weight,30,lbs
+Robin,Relocate UAV,Minimize UAV volume,40,ft3
+Robin,Employ UAV,Maximize all weather capability,1,index
+Robin,Employ UAV,Maximize UAV range,90,km
+Robin,Employ UAV,Maximize UAV Pd,0.9,probability
+Robin,Employ UAV,Maximize UAV endurance,2,hours
+Dove,Relocate UAV,Minimize UAV weight,40,lbs
+Dove,Relocate UAV,Minimize UAV volume,50,ft3
+Dove,Employ UAV,Maximize all weather capability,5,index
+Dove,Employ UAV,Maximize UAV range,100,km
+Dove,Employ UAV,Maximize UAV Pd,0.94,probability
+Dove,Employ UAV,Maximize UAV endurance,2,hours

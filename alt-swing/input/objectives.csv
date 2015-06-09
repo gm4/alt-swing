@@ -1,0 +1,10 @@
+Objective,Measure,Importance,Minimum,Maximum,Ideal,Units,Family,Slope,Param1,Param2,Param3
+Relocate UAV,Minimize UAV weight,35,5,50,5,lbs,sigmoid,-1,0.3,27.5,
+Relocate UAV,Minimize UAV volume,45,10,65,10,ft3,linear,-1,,,
+Employ UAV,Maximize all weather capability,70,1,5,5,index,linear,1,,,
+Employ UAV,Maximize UAV range,80,10,100,100,km,sigmoid,1,0.3,55,
+Employ UAV,Maximize UAV Pd,90,0.89,1.0,1.00,probability,sigmoid,1,100.0,0.94,
+Employ UAV,Maximize UAV endurance,100,0.25,2.0,2.0,hours,linear,1,,,
+Recover UAV,Maximize Pr,65,0.5,1.0,1.00,probability,power,1,0.3,,
+Recover UAV,Minimize destroy time,50,0.0,10.0,0.0,seconds,power,-1,2.0,,
+Growth Potential,Maximize upgradability,85,0.0,1.0,0.9,index,triangular,1,0.9,,
