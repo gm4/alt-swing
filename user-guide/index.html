@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>User Guide - alt-swing Documentation</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> alt-swing Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">User Guide</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#requirements">Requirements</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#variables">Variables</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#structuring-input">Structuring Input</a></li>
+                
+                    <li><a class="toctree-l4" href="#objectives-and-measures">Objectives and Measures</a></li>
+                
+                    <li><a class="toctree-l4" href="#alternatives">Alternatives</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#evaluating-alternatives">Evaluating Alternatives</a></li>
+                
+                    <li><a class="toctree-l4" href="#value-functions">Value Functions </a></li>
+                
+            
+                <li class="toctree-l3"><a href="#calculating-weights">Calculating Weights</a></li>
+                
+                    <li><a class="toctree-l4" href="#calculating-swing-weights">Calculating Swing Weights</a></li>
+                
+                    <li><a class="toctree-l4" href="#calculating-moda-weight">Calculating MODA Weight</a></li>
+                
+                    <li><a class="toctree-l4" href="#generating-the-alternative-value-matrix">Generating the Alternative Value Matrix</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#generating-reports">Generating Reports </a></li>
+                
+                    <li><a class="toctree-l4" href="#creating-the-report-in-other-formats">Creating the Report in Other Formats</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#to-do">To do</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">alt-swing Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>User Guide</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/gm4/alt-swing" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>This User Guide steps through the use of the IPython Notebook available on <a href="https://github.com/gm4/alt-swing">GitHub</a>, an implementation of a multi-objective decision analysis trade study using the swing weight matrix.</p>
+<hr />
+<h2 id="requirements">Requirements</h2>
+<p>The <a href="http://continuum.io">Anaconda</a> and <a href="https://www.enthought.com">Enthought</a> Python distributions should satisfy most requirements, except <a href="http://stanford.edu/~mwaskom/software/seaborn/">seaborn</a>.</p>
+<p>Python 2.7.x and the following modules:</p>
+<ul>
+<li>IPython notebook</li>
+<li>scipy (0.15.1)</li>
+<li>numpy</li>
+<li>pandas (0.16.1)</li>
+<li>matplotlib</li>
+<li>seaborn (0.5.1)</li>
+<li>markdown</li>
+<li>jinja2</li>
+</ul>
+<hr />
+<h2 id="variables">Variables</h2>
+<p>There are a few variables that allow you to customize your trade study.  This section describes these variables and provides their default values.</p>
+<p>The following distribution name strings correspond to the value functions.  These names should correspond to the <em>Family</em> identified in <code>objectives.csv</code> You can define your own user-defined value function by setting a unique name and name string, and adding the function definition in the code.  Be sure to include this name in the loop of the evaluation step below.</p>
+<pre><code>sigString = 'sigmoid'
+linString = 'linear'
+powString = 'power'
+triString = 'triangular'
+</code></pre>
+<p>The value function range <code>vfRange</code> corresponds to the maximum value that you will use (default is 100.0).  The minimum value is alway 0.0.</p>
+<pre><code>vfRange = 100.0
+</code></pre>
+<p>Weights for Importance and Swing are used to calculate the overall MODA weight of each Measure.</p>
+<pre><code>impWt = 0.65
+swWt = 1.0 - impWt
+</code></pre>
+<p>By default, the program automatically generates an HTML report using the <code>jinja2</code> templating engine with markdown syntax text documents.</p>
+<pre><code>htmlReport = True
+</code></pre>
+<p>If <code>False</code>, no HTML report will be generated.  Further details are in the <a href="./#Report">HTML Report</a> section.</p>
+<hr />
+<h2 id="structuring-input">Structuring Input</h2>
+<p>There are two input files: <code>objectives.csv</code> and <code>alternatives.csv</code>.  Both of these files are contained in the <strong>input</strong> folder.  Follow the recommended naming conventions to avoid refactoring the code.</p>
+<p>The input files are contained in the <code>input</code> folder:</p>
+<pre><code>- alt-swing
+    alt-swing.ipynb
+    - input
+        - alternatives.csv
+        - objectives.csv
+</code></pre>
+<h3 id="objectives-and-measures">Objectives and Measures</h3>
+<p>The <code>objectives.csv</code> file expects the following columns and indices:</p>
+<ul>
+<li>Objective [string]: the objective corresponding to this row (index column) </li>
+<li>Measure [string]: the measure corresponding to this row (index column) </li>
+<li>Importance [float]:  the relative importance to the decision being assessed</li>
+<li>Minimum [float]: the minimum score for this Measure</li>
+<li>Maximum [float]: the maximum score for this Measure</li>
+<li>Ideal [float]: the ideal value for this measure</li>
+<li>Units [string]: the units of this measure (kg, m3, km/h, index, ...)</li>
+<li>Family [float]: the value function family for this measure; see <a href="./#ValFuncs">Value Functions</a></li>
+<li>Slope [float]: +1 for an increasing function, -1 for decreasing</li>
+<li>Param1, Param2, Param3 [floats]: value function parameters; see <a href="./#ValFuncs">Value Functions</a></li>
+</ul>
+<p>Here is an example format:</p>
+<pre><code>Objective,Measure,Importance,Minimum,Maximum,Ideal,Units,Family,Slope,Param1,Param2,Param3
+Obj1,Measure 1,35,5,50,5,lbs,sigmoid,-1,0.3,27.5,
+Obj1,Measure 2,45,10,65,10,ft3,linear,-1,,,
+Obj2,Measure 3,35,5,50,5,lbs,sigmoid,-1,0.3,27.5,
+</code></pre>
+<h3 id="alternatives">Alternatives</h3>
+<p>The <code>alternatives.csv</code> file expects the following columns and indices:</p>
+<ul>
+<li>Alternative [string]: the name of the alternative (index column) </li>
+<li>Objective [string]: name of the corresponding objective; the string should match an objective in <code>objectives.csv</code> (index column) </li>
+<li>Measure [float]: name of the corresponding measure; the string should match a measure in <code>objectives.csv</code> (index column) </li>
+<li>Value: the score of the alternative on this Objective/Measure; e.g. weight is 5 kg, maximum speed is 230 km/h, etc.</li>
+<li>Units [string]: the units associated with Value .  Note: <strong>no unit conversion takes place</strong>; these units should be identical to the Units defined in <code>objectives.csv</code> for the corresponding Measure.</li>
+</ul>
+<p>Here is an example format:</p>
+<pre><code>Alternative,Objective,Measure,Value,Units
+Cardinal,Relocate UAV,Minimize UAV weight,5,lbs
+Cardinal,Relocate UAV,Minimize UAV volume,12,ft3
+Cardinal,Employ UAV,Maximize all weather capability,3,index
+</code></pre>
+<hr />
+<h2 id="evaluating-alternatives">Evaluating Alternatives</h2>
+<p>Each alternative is evaluated against all measures in the Objectives Hierarchy defined for the alternative.  The MODA weight is calculated using both the decision importance and the swing, or range, of alternative values of the measure.</p>
+<h3 id="value-functions">Value Functions <a name="ValFuncs"></a></h3>
+<p>Value functions describe the value or utility that each alternative has with regard to the overall decision.  For all functions, x is the Score derived from the Alternative and Measure in <code>alternatives.csv</code>.  The following value functions are defined by default:</p>
+<p><strong>Linear Function</strong></p>
+<p>The linear function simply scales an input.</p>
+<pre><code>def scale(x, xMin, xMax):
+    &quot;&quot;&quot; Returns the scaled value between [0.0, 1.0] evaluated at x 
+    from original domain of [xMin, xMax]. &quot;&quot;&quot;
+    return (x - xMin) / (xMax - xMin)
+</code></pre>
+
+<p><code>xMin</code> : objectives.Minimum, <code>xMax</code> : objectives.Maximum; (Minimum and Maximum defined in <code>objectives.csv</code>).</p>
+<p><strong>Bell Function</strong></p>
+<pre><code>def bell(x, a, b, c):
+    &quot;&quot;&quot; Returns the [0,vfRange] scaled generalized bell curve 
+    evaluated at x for (c)enter and shape parameters a and b.&quot;&quot;&quot;
+    return vfRange * 1.0 / (1.0 + pow(np.abs((x - c)/a), (2.0*b)))
+</code></pre>
+
+<p><code>c</code> : Param1, <code>a</code> : Param2, <code>b</code> : Param3</p>
+<p><strong>Sigmoid Function</strong></p>
+<pre><code>def sigmoid(x, a, c):
+    &quot;&quot;&quot;Returns the [0,vfRange] scaled sigmoid function evaluated 
+    at x for (a)lpha and (c)enter.&quot;&quot;&quot;
+    return vfRange * (1.0 / (1.0 + np.exp(-1.0 * a * (x - c))))
+</code></pre>
+
+<p><code>a</code> : Param1, <code>c</code> : Param2, Param3 is unused</p>
+<p><strong>Triangular Function</strong></p>
+<pre><code>def triangular(x, l, c, r):
+    &quot;&quot;&quot; Returns the [0,100] scaled triangular value function evaluated 
+    at x for (l)eft, (c)enter, (r)ight triangular parameters.&quot;&quot;&quot;
+    return vfRange * max(min(((x - l)/(c - l)), ((r - x)/(r - c))), 0.0)
+</code></pre>
+
+<p><code>l</code> : objectives.Minimum, <code>r</code> : objectives.Maximum, <code>c</code> : objectives.Ideal; Minimum, Maximum and Ideal are defined in <code>objectives.csv</code>.</p>
+<h3 id="_1"></h3>
+<p>Here is an example value function for a single measure.</p>
+<!-- $(x - x_l)/(x_m - x_l)$
+ -->
+
+<p><img alt="Value Function" src="../img/vf_example.png" />
+<!-- <img src="img/vf_example.png" width="100"> --></p>
+<hr />
+<h2 id="calculating-weights">Calculating Weights</h2>
+<p>The overall value of each alternative depends on the swing weight, which is calculated as a function of the degree of importance and the range of alternative value.(refer to the SEBoK Wiki page on <a href="http://sebokwiki.org/wiki/Decision_Management">Decision Management</a> for more information).  The evaluation of each alternative is done using built-in <code>numpy</code> or <code>pandas</code> functions and transformations.  See the <a href="http://docs.scipy.org/doc/scipy/reference/">scipy</a> or <a href="http://pandas.pydata.org/pandas-docs/stable/">pandas</a> documentation for more information.  The logic for this evaluation is as follows:</p>
+<p>The evaluation operation loops through all rows of the alternatives DataFrame defined from <code>alternatives.csv</code>, and evaluates the alternative for the corresponding Objective and Measure, which are index columns of the objectives DataFrame.  The parameters for these dictate the function family, minimum, maximum and other parameters of the value function.  The resulting score, or unweighted value, is stored in the alternatives DataFrame.  The loop ends after the last row of the alternatives DataFrame has been evaluated.</p>
+<h3 id="calculating-swing-weights">Calculating Swing Weights</h3>
+<p>Calculated as the range (max - min) of all alternative value scores, then normalized.  Refer to the <a href="http://sebokwiki.org/wiki/Decision_Management">SEBoK Wiki</a> for more details.</p>
+<h3 id="calculating-moda-weight">Calculating MODA Weight</h3>
+<p>A combination of Measure's <em>Importance</em> and <em>Swing</em> weights using the variables <code>impWt</code> and <code>swWt</code> defined above.  Refer to the <a href="http://sebokwiki.org/wiki/Decision_Management">SEBoK Wiki</a> for more details.</p>
+<h3 id="generating-the-alternative-value-matrix">Generating the Alternative Value Matrix</h3>
+<p>The MODA results are used to compare alternative performance against the objectives and measures.</p>
+<p>Uses <strong>seaborn</strong>'s <code>heatmap</code> function.  Here is an example heatmap that gets generated.</p>
+<p><img alt="Heat Map" src="../img/heatmap.png" /></p>
+<hr />
+<h2 id="generating-reports">Generating Reports <a name="Report"></a></h2>
+<p>Standalone HTML reports are generated automatically using the <code>jinja2</code> templating engine and <code>markdown</code> Python module.  The directory structure for this environment is:</p>
+<pre><code>- alt-swing
+    - templates
+        - content
+            - alternatives-section.md
+            - obj_measures-section.md
+            - xxx-section.md
+        - alt-swing_template.html
+    - html_report
+        - css
+            - ...
+        - images
+        - report.html
+</code></pre>
+<p>The <strong>templates</strong> folder contains the input necessary to generate the report.  This includes the <strong>alt-swing_template.html</strong> <code>jinja2</code> HTML template.  The <strong>content</strong> subfolder includes markdown documents where you can place your desired report content.  You can modify the template to add new content sections as you need, but it will require modifying the <code>alt-swing</code> content as well, since there are direct pointers to the specific files above.  These files are converted to HTML using the <code>markdown</code> module.</p>
+<p>The <strong>html_report</strong> folder contains (you guessed it!) the generated report.  Open the <strong>report.html</strong> file in a browser to view the results.  The default <code>alt-swing</code> report template includes transformed versions of the alternatives and objectives and measures DataFrames, along with a few selected figures.</p>
+<h3 id="creating-the-report-in-other-formats">Creating the Report in Other Formats</h3>
+<p>Once you have the HTML report, consider using <a href="http://pandoc.org">pandoc</a>, free software that can convert to other formats, including MS Word and PDF (via LaTeX).</p>
+<h2 id="to-do">To do</h2>
+<p>Please see the <a href="">alt-swing GitHub</a> page for information on future updates.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+
+</body>
+</html>
