@@ -1,5 +1,5 @@
 # alt-swing
-This is an IPython Notebook implementation of the SE multi-objective decision analysis framework described at [http://sebokwiki.org/wiki/Decision_Management].  For detailed instructions, follow the [User Guide](gm4.github.io/alt-swing/).
+This is an IPython Notebook implementation of the SE multi-objective decision analysis framework described at [http://sebokwiki.org/wiki/Decision_Management].  For detailed instructions, follow the [User Guide](http://gm4.github.io/alt-swing/).
 
 ## Use
 Assess a set of alternatives, scoring performance using swing weights, and display the results.
